@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to submit report' });
   }
-}
+});
 router.get('/:caseCode', async (req, res) => {
   const { caseCode } = req.params;
 
@@ -75,8 +75,7 @@ router.get('/:caseCode', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch report status' });
   }
-}
-
+});
 
 
 router.post('/:caseCode/note', async (req, res) => {
