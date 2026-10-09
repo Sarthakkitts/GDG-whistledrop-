@@ -1,0 +1,153 @@
+{
+  "version": 2,
+  "requests": [
+    {
+      "method": "GET",
+      "header": [],
+      "pathname": "/health",
+      "timeout": 0,
+      "params": [],
+      "body": {
+        "type": "raw",
+        "raw": ""
+      },
+      "name": "Health Check",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    },
+    {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "enabled": true
+        }
+      ],
+      "pathname": "/reports",
+      "timeout": 0,
+      "params": [],
+      "body": {
+        "type": "raw",
+        "raw": "{\n  \"category\": \"Corruption\",\n  \"description\": \"Test report via ThunderClient\",\n  \"evidenceUrl\": \"https://example.com/test.pdf\"\n}"
+      },
+      "name": "Submit Report",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    },
+    {
+      "method": "GET",
+      "header": [],
+      "pathname": "/reports/:caseCode",
+      "timeout": 0,
+      "params": [
+        {
+          "name": "caseCode",
+          "value": "",
+          "enabled": true
+        }
+      ],
+      "body": {
+        "type": "raw",
+        "raw": ""
+      },
+      "name": "Get Report",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    },
+    {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "enabled": true
+        }
+      ],
+      "pathname": "/reports/:caseCode/note",
+      "timeout": 0,
+      "params": [
+        {
+          "name": "caseCode",
+          "value": "",
+          "enabled": true
+        }
+      ],
+      "body": {
+        "type": "raw",
+        "raw": "{\n  \"note\": \"Test note from ThunderClient\"\n}"
+      },
+      "name": "Add Note",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    },
+    {
+      "method": "GET",
+      "header": [
+        {
+          "key": "x-api-key",
+          "value": "whistledrop_moderator_key_123",
+          "enabled": true
+        }
+      ],
+      "pathname": "/moderator/reports",
+      "timeout": 0,
+      "params": [],
+      "body": {
+        "type": "raw",
+        "raw": ""
+      },
+      "name": "Moderator: Get All Reports",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    },
+    {
+      "method": "PUT",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "enabled": true
+        },
+        {
+          "key": "x-api-key",
+          "value": "whistledrop_moderator_key_123",
+          "enabled": true
+        }
+      ],
+      "pathname": "/moderator/reports/:caseCode/status",
+      "timeout": 0,
+      "params": [
+        {
+          "name": "caseCode",
+          "value": "",
+          "enabled": true
+        }
+      ],
+      "body": {
+        "type": "raw",
+        "raw": "{\n  \"status\": \"IN_PROGRESS\"\n}"
+      },
+      "name": "Moderator: Update Status",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 4000
+    }
+  ],
+  "environment": {
+    "variables": [
+      {
+        "key": "caseCode",
+        "value": ""
+      }
+    ]
+  },
+  "folders": [],
+  "name": "WhistleDrop API Collection",
+  "id": "whistledrop-thunderclient-collection"
+}
